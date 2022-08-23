@@ -7,13 +7,19 @@ import './style.css'
 function Home() {
     let { id } = useParams();
     let page = id;
-    let nextPage = parseInt(page) + 1;
-    let previusPage = parseInt(page) - 1;
-
+    let nextPage = 0;
+    let previusPage = 0;
+    
+    if (page == NaN || page == '' || page == 'NaN' ) { 
+        page = 1;
+    }
+    
+    nextPage = parseInt(page) + 1;
+    previusPage = parseInt(page) - 1;
+    
     if (previusPage <= 0) {
         previusPage = 1;
     }
-
     const [filmes, setFilmes] = useState([]);
 
     useEffect(() => {
