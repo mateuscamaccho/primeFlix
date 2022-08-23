@@ -1,0 +1,48 @@
+.container-filmes {
+    display  : flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin   : 0 auto;
+}
+
+.container-filmes>article {
+    flex         : 1 1 350px;
+    max-width    : 350px;
+    margin       : 20px;
+    box-shadow   : 10px 10px 10px #00000090;
+    border-radius: 10px;
+    overflow     : hidden;
+    text-align   : center;
+}
+
+.container-filmes>article img {
+    width : 350px;
+    height: 400px;
+}
+
+article .nota {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    gap            : 7px;
+}
+
+article .btn-detalhe {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    height          : 50px;
+    width           : 100%;
+    background-color: #866ae4;
+    text-decoration : none;
+    font-weight     : 700;
+    color           : #fff;
+    font-size       : 1.2em;
+    margin-top: 10px;
+}
+
+article .btn-detalhe:hover {
+    font-size     : 1.5em;
+    letter-spacing: 2px;
+    transition    : all .5s;
+}
