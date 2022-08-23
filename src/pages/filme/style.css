@@ -1,0 +1,79 @@
+.loading {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    font-size      : 2em;
+    margin-top     : 30px;
+}
+
+.filme-info {
+    margin-top: 30px;
+}
+
+.filme-info {
+    display  : flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin   : 0 auto;
+}
+
+.filme-info>img {
+    width        : 1000px;
+    height       : 500px;
+    margin       : 20px;
+    box-shadow   : 10px 10px 10px #00000090;
+    border-radius: 10px;
+    overflow     : hidden;
+    text-align   : center;
+}
+
+.info-container {
+    padding       : 10px 20px 0px 20px;
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+}
+
+.detalhe1 {
+    display       : flex;
+    flex-direction: column;
+}
+
+.sinopse {
+    font-size : 1.1em;
+    text-align: justify;
+}
+
+.prod-logo {
+    width : 200px;
+    height: 80px;
+}
+
+.btns {
+    display: flex;
+    gap    : 20px;
+}
+
+a.btn-info {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.btn-info {
+    width           : 130px;
+    height          : 60px;
+    background-color: rgb(218, 218, 218);
+    border-radius   : 10px;
+    font-size       : 1.3em;
+    border          : none;
+    text-decoration : none;
+    color           : #000;
+    cursor          : pointer;
+    transition      : all .2s ease-in-out;
+}
+
+.btn-info:hover {
+    transform     : scale(1.1);
+    letter-spacing: 1px;
+}
