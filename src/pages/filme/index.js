@@ -37,6 +37,28 @@ function Filme() {
 
     }, [id, navigate])
 
+    function salvarFilme() {
+        //acessando e guardando dados do local storage
+        const minhaLista = localStorage.getItem("@primeflix")
+
+        //se nao tiver dados inicia a variavel como um array vazio
+        let filmesSalvos = JSON.parse(minhaLista) || [];
+
+        //verifica se o id do filme salvo é o mesmo dde algum que já esta salvo
+        const hasFilmes = filmesSalvos.some((filmesSalvo) => filmesSalvo.id === detalhes.id);
+        //se for entra aqui e para a execução
+        if (hasFilmes) {
+            alert("Esse Filme já esta na lista");
+            return;
+        }
+
+        //se não coloca o array em filmesalvos, transforma em string com o stringify e adiciona ao localstorage
+        filmesSalvos.push(detalhes)
+        localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos))
+        alert("Filme salvo com sucesso")
+    }
+
+
     if (loading) {
         return (
             <div className='loading'>
@@ -69,7 +91,7 @@ function Filme() {
                     {detalhes.overview}
                 </div>
                 <div className='btns'>
-                    <button className='btn-info'>Salvar</button>
+                    <button className='btn-info' onClick={salvarFilme}>Salvar</button>
                     <a className='btn-info' href={`https://www.youtube.com/results?search_query=${detalhes.title} Trailer`} target="_blank" rel="external">Trailer</a>
                 </div>
             </div>
