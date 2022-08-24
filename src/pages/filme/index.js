@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import api from '../../service/api';
 import './style.css';
 function Filme() {
@@ -48,14 +50,14 @@ function Filme() {
         const hasFilmes = filmesSalvos.some((filmesSalvo) => filmesSalvo.id === detalhes.id);
         //se for entra aqui e para a execução
         if (hasFilmes) {
-            alert("Esse Filme já esta na lista");
+            toast.warn("Esse filme já esta em favoritos!")
             return;
         }
 
         //se não coloca o array em filmesalvos, transforma em string com o stringify e adiciona ao localstorage
         filmesSalvos.push(detalhes)
         localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos))
-        alert("Filme salvo com sucesso")
+        toast.success("Filme salvo com sucesso!")
     }
 
 
@@ -92,7 +94,7 @@ function Filme() {
                 </div>
                 <div className='btns'>
                     <button className='btn-info' onClick={salvarFilme}>Salvar</button>
-                    <a className='btn-info' href={`https://www.youtube.com/results?search_query=${detalhes.title} Trailer`} target="_blank" rel="external">Trailer</a>
+                    <a className='btn-info' href={`https://www.youtube.com/results?search_query=${detalhes.title} Trailer`} target="blank" rel="external">Trailer</a>
                 </div>
             </div>
 

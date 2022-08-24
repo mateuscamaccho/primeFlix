@@ -19,7 +19,7 @@ function Header() {
             </div>
             <div className='menu'>
                 <Link to='/'>Home</Link>
-                <Link to='/filme'>Meus Filmes</Link>
+                <Link to='/favoritos'>Meus Filmes</Link>
             </div>
         </header>
     )

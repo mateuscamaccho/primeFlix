@@ -1,0 +1,74 @@
+a {
+    text-decoration: none;
+}
+
+.meus-filmes {
+    margin-top: 24px;
+}
+
+.meus-filmes h1 {
+    text-align   : center;
+    margin-bottom: 14px;
+}
+
+.meus-filmes h2 {
+    text-align   : center;
+    margin-bottom: 14px;
+}
+
+.meus-filmes strong {
+    font-size: 1.4em;
+}
+
+.meus-filmes ul {
+    max-width: 1200px;
+    margin   : 0 auto;
+}
+
+.meus-filmes ul li {
+    list-style     : none;
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    border-bottom: 4px solid #63636380;
+    padding-bottom: 20px;
+}
+.meus-filmes ul li:nth-child(n + 2) {
+    padding-top: 20px;
+}
+
+.meus-filmes .btns {
+    display    : flex;
+    align-items: center;
+    gap        : 30px;
+}
+
+.meus-filmes .btns .btnLista {
+    width           : 140px;
+    height          : 40px;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    background-color: rgb(202, 198, 198);
+    color           : #000;
+    cursor: pointer;
+    font-weight     : 700;
+    font-size       : 1.1em;
+    border-radius   : 10px;
+    border          : none;
+    box-shadow      : 5px 5px 10px #00000080;
+    transition      : all 0.2s ease-in-out;
+}
+
+.meus-filmes .btns .btnLista:nth-child(1):hover {
+    transform       : scale(1.1);
+    letter-spacing  : 1px;
+    background-color: #866ae4;
+    color: #fff;
+}
+.meus-filmes .btns .btnLista:nth-child(2):hover {
+    transform       : scale(1.1);
+    letter-spacing  : 2px;
+    background-color: #a72121;
+    color: #fff;
+}
