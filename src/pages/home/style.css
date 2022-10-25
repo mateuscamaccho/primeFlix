@@ -1,5 +1,34 @@
 .container {
-    margin-top: 30px;
+    margin-top: 80px;
+}
+
+.pagina {
+    display  : flex;
+    flex-wrap: wrap;
+    max-width: 1150px;
+    margin   : 0 auto;
+    font-size: 1.3em;
+
+}
+
+.btns {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.btns div {
+    cursor          : pointer;
+    width           : 70px;
+    height          : 70px;
+    border-radius   : 50%;
+    background-color: #866ae4;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    font-size       : 1.4em;
+    margin          : 0;
+    padding         : 0;
 }
 
 .loading {
@@ -20,6 +49,7 @@
 .container-filmes>article {
     flex         : 1 1 350px;
     max-width    : 350px;
+    max-height   : 510px;
     margin       : 20px;
     box-shadow   : 10px 10px 10px #00000090;
     border-radius: 10px;
@@ -30,6 +60,18 @@
 .container-filmes>article img {
     width : 350px;
     height: 400px;
+}
+
+article .title {
+    max-width    : 50ch;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+    margin       : 0;
+    padding      : 0;
+    margin-left  : 10%;
+    margin-right : 10%;
+
 }
 
 article .nota {

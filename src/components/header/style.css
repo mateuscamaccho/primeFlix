@@ -5,6 +5,10 @@
     height          : 70px;
     background-color: #000;
     box-shadow      : 5px 5px 15px #00000080;
+    position        : fixed;
+    width           : 100%;
+    right           : 0;
+    top             : 0;
 }
 
 .header .logo {

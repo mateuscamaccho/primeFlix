@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import api from '../../service/api';
 import './style.css'
 
@@ -8,26 +9,30 @@ function Home() {
 
     const [filmes, setFilmes] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [pagina, setPagina] = useState(1)
+    const [maxpage, setMaxpage] = useState(0)
+
     useEffect(() => {
+
 
         async function loadFilmes() {
             const response = await api.get("movie/now_playing", {
                 params: {
                     api_key: "3e4b888d5a0054cf5094520732882528",
                     language: "pt-BR",
-                    page: 1
+                    page: pagina
                 }
             })
 
-            // console.log(response.data.results.slice(0, 10));
             setFilmes(response.data.results);
+            // console.log(filmes)
             setLoading(false)
+            setPagina(response.data.page)
+            setMaxpage(response.data.total_pages)
         }
-
         loadFilmes();
 
-    }, [])
-
+    }, [pagina])
 
     if (loading) {
         return (
@@ -37,17 +42,42 @@ function Home() {
         )
     }
 
+    function prevpage() {
+        let pag = pagina
+        if (pag <= 1) {
+            toast.warn('Você já esta na primeira página!')
+        } else {
+            setPagina(pag - 1)
+        }
+    }
+
+    function nextpage() {
+        let pag = pagina
+        if (pag >= maxpage) {
+            toast.warn('Você já esta na ultima página!')
+        } else {
+            setPagina(pag + 1)
+        }
+    }
+
 
     return (
         <div className='container'>
 
+            <div className='pagina'>Página: {pagina}</div>
+
+            <div className='btns'>
+                <div className='btnprev' onClick={prevpage}>{`<`}</div>
+                <div className='btnnext' onClick={nextpage}>{`>`}</div>
+            </div>
+            
             <div className='container-filmes'>
                 {filmes.map((filme) => {
 
                     return (
                         <article key={filme.id}>
                             <img src={`https://image.tmdb.org/t/p/original${filme.poster_path}`} alt={filme.title} />
-                            <h3>
+                            <h3 className='title'>
                                 <strong> {filme.title} </strong>
                             </h3>
 
@@ -68,6 +98,8 @@ function Home() {
                     )
                 })}
             </div>
+
+
 
         </div>
 
